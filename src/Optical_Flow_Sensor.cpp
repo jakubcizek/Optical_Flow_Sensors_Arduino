@@ -25,11 +25,6 @@
 
 #include <SPI.h>
 
-Optical_Flow_Sensor::Optical_Flow_Sensor(uint8_t cspin, uint8_t sensor){ 
-  _cs = cspin;
-  _sensor = sensor;
-}
-
 boolean Optical_Flow_Sensor::begin(void) {
     // Setup SPI port
     SPI.begin();
