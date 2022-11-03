@@ -1,5 +1,6 @@
-/* PMW3901 Arduino driver
- * Copyright (c) 2017 Bitcraze AB
+/* Optical Flow Sensor driver
+ * Copyright (c) 2022 RalBra
+ * forked from Bitcraze AB -- https://github.com/bitcraze/Bitcraze_PMW3901
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -20,16 +21,20 @@
  * SOFTWARE.
  */
 
-#ifndef __BITCRAZE_PMW3901_H__
-#define __BITCRAZE_PMW3901_H__
+#ifndef __OPTICAL_FLOW_SENSOR_H__
+#define __OPTICAL_FLOW_SENSOR_H__
 
 #include "Arduino.h"
 
 #include <stdint.h>
 
-class Bitcraze_PMW3901 {
+#define PMW3901 1
+#define PAA5100 2
+
+
+class Optical_Flow_Sensor {
 public:
-  Bitcraze_PMW3901(uint8_t cspin);
+  Optical_Flow_Sensor(uint8_t cspin, uint8_t sensor);
 
   boolean begin(void);
 
@@ -41,10 +46,13 @@ public:
 
 private:
   uint8_t _cs;
+  u_int8_t _sensor;
 
   void registerWrite(uint8_t reg, uint8_t value);
   uint8_t registerRead(uint8_t reg);
-  void initRegisters(void);
+  void initRegistersPMW3901(void);
+  void initRegistersPAA5100(void);
+  void secrectSauce(void);
 };
 
-#endif //__BITCRAZE_PMW3901_H__
+#endif //__OPTICAL_FLOW_SENSOR_H__

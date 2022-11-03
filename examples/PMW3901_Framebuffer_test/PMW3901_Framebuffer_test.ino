@@ -1,10 +1,10 @@
 //"THE BEER-WARE LICENSE" (Revision 42): Arsenio Dev wrote this file. As long as you retain this notice you can do whatever you want with this stuff. 
 //If we meet some day, and you think this stuff is worth it, you can buy me a beer in return.
+#include "Optical_Flow_Sensor.h"
 
-#include "Bitcraze_PMW3901.h"
-
-// Using digital pin 10 for chip select
-Bitcraze_PMW3901 flow(10);
+// param #1 digital pin 5 for chip select
+// param #2 sensor type either PAA5100 or PMW3901 
+Optical_Flow_Sensor flow(5, PMW3901);
 char frame[35*35]; //array to hold the framebuffer
 
 

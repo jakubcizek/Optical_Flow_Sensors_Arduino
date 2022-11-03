@@ -1,8 +1,9 @@
-# Arduino driver for PMW3901 optical flow sensor
+# Arduino driver for PAA5001JE and PMW3901 optical flow sensor
 
-Arduino driver for the Pixart PMW3901 optical flow sensor. The driver
-is developed to support the [Bitcraze Flow Breakout board](https://wiki.bitcraze.io/breakout:flow). It communicates with
+Arduino driver for the PAA5100JE and Pixart PMW3901(not tested atm) optical flow sensors. The driver
+was originally developed to support the [Bitcraze Flow Breakout board](https://wiki.bitcraze.io/breakout:flow). It communicates with
 the sensor using SPI.
+The Code for the PAA5100Je comes from [PiMoRoNi](https://github.com/pimoroni/pmw3901-python) which is written in python.
 
 ## Electrical connection
 
@@ -15,8 +16,10 @@ Look at the [flow](examples/flow/flow.ino) example for basic usage.
 You can create a sensor by passing the chip select pin number:
 
 ``` C++
-// Using digital pin 10 for chip select
-Bitcraze_PMW3901 flow(10);
+#include "Optical_Flow_Sensor.h"
+// param #1 digital pin 5 for chip select
+// param #2 sensor type either PAA5100 or PMW3901 
+Optical_Flow_Sensor flow(5, PAA5100);
 ```
 
 Initializing the sensor is done by calling *begin*, it returns *true* if the sensor is detected and initialized, *false* otherwise:

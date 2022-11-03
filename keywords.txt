@@ -1,4 +1,6 @@
-Bitcraze_PMW3901	KEYWORD1
-readMotionCount	KEYWORD2
-enableFrameBuffer KEYWORD2
-readFrameBuffer KEYWORD2 
+OpticalFlowSensor	KEYWORD1
+PAA5100	            KEYWORD2
+PAA5100JE	        KEYWORD2
+PMW3901	            KEYWORD2
+enableFrameBuffer   KEYWORD2
+readFrameBuffer     KEYWORD2 

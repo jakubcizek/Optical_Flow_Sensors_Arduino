@@ -1,7 +1,8 @@
-#include "Bitcraze_PMW3901.h"
+#include "Optical_Flow_Sensor.h"
 
-// Using digital pin 10 for chip select
-Bitcraze_PMW3901 flow(10);
+// param #1 digital pin 10 for chip select
+// param #2 sensor type either PAA5100 or PMW3901 
+Optical_Flow_Sensor flow(10, PAA5100);
 
 void setup() {
   Serial.begin(9600);
