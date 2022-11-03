@@ -34,7 +34,8 @@
 
 class Optical_Flow_Sensor {
 public:
-  Optical_Flow_Sensor(uint8_t cspin, uint8_t sensor);
+  Optical_Flow_Sensor(uint8_t cs_pin, uint8_t sensor) 
+    : _cs{cs_pin}, _sensor{sensor}{}
 
   boolean begin(void);
 
