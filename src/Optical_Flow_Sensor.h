@@ -42,6 +42,7 @@ public:
   void readMotionCount(int16_t *deltaX, int16_t *deltaY);
   void enableFrameBuffer();
   void readFrameBuffer(char *FBuffer);
+  void setOrientation(char orientation);
 
   void setLed(bool ledOn);
 
