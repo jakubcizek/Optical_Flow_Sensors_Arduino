@@ -85,6 +85,45 @@ void Optical_Flow_Sensor::readMotionCount(int16_t *deltaX, int16_t *deltaY)
   *deltaY = ((int16_t)registerRead(0x06) << 8) | registerRead(0x05);
 }
 
+void Optical_Flow_Sensor::setOrientation(char orientation)
+{
+  bool invert_x = true;
+  bool invert_y = true;
+  bool swap_xy = true;
+  switch(orientation){
+    case 'S':
+    invert_x=true;
+    invert_y=true;
+    swap_xy=true;
+    break;
+
+    case 'W':
+    invert_x=false;
+    invert_y=true;
+    swap_xy=false;
+    break;
+
+    case 'N':
+    invert_x=false;
+    invert_y=false;
+    swap_xy=true;
+    break;
+
+    case 'E':
+    invert_x=true;
+    invert_y=false;
+    swap_xy=false;
+    break;
+  }
+
+  uint8_t value = 0;
+  if(swap_xy) value |= 0b10000000;
+  if(invert_y) value |= 0b01000000;
+  if(invert_x) value |= 0b00100000;
+
+  registerWrite(0x5B, value);
+}
+
 void Optical_Flow_Sensor::enableFrameBuffer()
 {
 
