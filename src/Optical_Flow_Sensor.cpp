@@ -97,7 +97,7 @@ void Optical_Flow_Sensor::setOrientation(char orientation)
     swap_xy=true;
     break;
 
-    case 'W':
+    case 'E':
     invert_x=false;
     invert_y=true;
     swap_xy=false;
@@ -109,7 +109,7 @@ void Optical_Flow_Sensor::setOrientation(char orientation)
     swap_xy=true;
     break;
 
-    case 'E':
+    case 'W':
     invert_x=true;
     invert_y=false;
     swap_xy=false;
@@ -123,6 +123,7 @@ void Optical_Flow_Sensor::setOrientation(char orientation)
 
   registerWrite(0x5B, value);
 }
+
 
 void Optical_Flow_Sensor::enableFrameBuffer()
 {
